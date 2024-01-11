@@ -1,6 +1,10 @@
 # video-dl
 A frontend UI for yt-dlp
 
+## Status
+
+DON'T USE THIS YET.  NEW PROJECT.  NOT FUNCTIONAL.
+
 ## Requirements
 
 - This has mostly been tested with python 3.12.0 on Windows 10.  In theory, it is cross-platform and should work with any OS and any somewhat recent version of Python 3.
