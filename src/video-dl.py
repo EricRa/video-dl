@@ -5,7 +5,6 @@ import sys
 # ***REMOVE THIS IMPORT LATER, IT IS NOT IN REQUIREMENTS.TXT***
 from icecream import ic  # For debugging
 
-
 # Make sure user has yt-dlp working
 try:
     subprocess.run(
@@ -17,8 +16,19 @@ except Exception as e:
       " able to run yt-dlp from the command line.\n")
     print(f"Error details: {e}")
     sys.exit(1) # terminates program
-        
 
+
+testing_video = ""
+command_args = [] # arguments to pass to yt-dlp
+
+def call_yt_dlp(*args):
+    """
+    Executes yt-dlp and returns the command's output
+    """
+    result = subprocess.call(["yt-dlp", testing_video])
+    
+    return result
+    
 # Set up basic properties for ctk object
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
@@ -26,22 +36,6 @@ app = ctk.CTk()
 app.title("video-dl")
 app.geometry("800x500")
 app.resizable(False, False)
-
-# Code here to find installation directory of yt-dlp
-#
-#
-#
-
-# Code here to assign str(filepath) to a variable to use later
-#
-#
-#
-
-# Function definition here for the subprocess.call to invoke yt-dlp
-#
-#
-#
-
 
 # Input box for video URL
 video_url = ctk.CTkTextbox(
@@ -75,5 +69,11 @@ output_window.insert("0.0", "Output will be shown here")
 
 video_url.grid(padx = 20, pady = 20)
 output_window.grid(padx = 20, pady = 20)
+
+
+# Run yt-dlp to fetch video
+call_yt_dlp()
+
+
 
 app.mainloop()
