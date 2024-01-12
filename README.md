@@ -1,9 +1,9 @@
 # video-dl
-A frontend UI for yt-dlp
+A GUI for yt-dlp
 
 ## Status
 
-DON'T USE THIS YET.  NEW PROJECT.  NOT FUNCTIONAL.
+DON'T USE THIS YET.  NEW PROJECT.  NOT YET FUNCTIONAL.
 
 ## Requirements
 
@@ -20,7 +20,20 @@ DON'T USE THIS YET.  NEW PROJECT.  NOT FUNCTIONAL.
 	
 ## Installation and usage
 
-- [coming soon]
+- First, install yt-dlp if you don't have it:
+	>pip install yt-dlp
+
+- Upgrade it:
+	> pip install yt-dlp --upgrade
+
+- Be sure that yt-dlp is working from the command line.  Make sure this runs:
+	> yt-dlp --help
+	
+- Install dependencies from requirements.txt in this repo.  Can do this manually in pip or can download the file and (with requirements.txt in the same directory):
+	> pip install -r requirements.txt
+	
+- Now you can just run the script (video-dl.py) to start the GUI.
+
 
 ## License
 

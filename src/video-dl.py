@@ -1,10 +1,27 @@
 import customtkinter as ctk
-import sys
 import subprocess
+import sys
 
+# ***REMOVE THIS IMPORT LATER, IT IS NOT IN REQUIREMENTS.TXT***
+from icecream import ic  # For debugging
+
+
+# Make sure user has yt-dlp working
+try:
+    subprocess.run(
+        ["yt-dlp", "--help"],
+        stdout = subprocess.DEVNULL
+    )
+except Exception as e:
+    print("There was an error with yt-dlp.  Make sure you are"
+      " able to run yt-dlp from the command line.\n")
+    print(f"Error details: {e}")
+    sys.exit(1) # terminates program
+        
+
+# Set up basic properties for ctk object
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
-
 app = ctk.CTk()
 app.title("video-dl")
 app.geometry("800x500")
