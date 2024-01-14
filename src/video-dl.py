@@ -74,7 +74,7 @@ video_url.grid(sticky="w", row=0, column=0, padx=20, pady=20)
 
 
 # Submit/download button
-download_button = ctk.CTkButton(app, text="Download", command=dl_button_press())
+download_button = ctk.CTkButton(app, text="Download", command=dl_button_press)
 download_button.grid(sticky="w", column=0, padx=20, pady=20)
 
 # Output window for yt-dlp output
