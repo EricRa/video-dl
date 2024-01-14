@@ -20,6 +20,7 @@ except Exception as e:
 
 testing_video = ""
 video_link = ""
+console_output = []
 command_args = [] # arguments to pass to yt-dlp
 
 def call_yt_dlp(video_link, *args):
@@ -29,11 +30,26 @@ def call_yt_dlp(video_link, *args):
     video_link is required and should be the URL string to the video
     to be downloaded.
     
-    other arguments should be strings, as they will be appended in order
+    Other arguments should be strings, as they will be appended in order
     after the URL when invoking yt-dlp.
     
+    We also capture console output here (both stdout and stderr) and append
+    them as string objects to the console_output list initialized above.  Then,
+    we can print those out.
+    
     """
-    result = subprocess.call(["yt-dlp", video_link])
+    result = subprocess.run(
+        ["yt-dlp", video_link],
+        capture_output = True,
+        text = True
+    )
+    
+    console_output.append(result.stdout)
+    console_output.append(result.stderr)
+    
+    for item in console_output:
+        output_window.insert("0.0", "\n")
+        output_window.insert("0.0", item)
     
     return result
 
