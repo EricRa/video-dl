@@ -1,0 +1,10 @@
+- Change default customertkinter images/icons
+
+- Add features:
+
+	- Checkboxes/radio buttons/dropdowns for most commonly used flags:
+		- Quality
+		- Subtitles
+		- ? (need to review options)
+		
+	

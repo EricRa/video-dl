@@ -19,16 +19,36 @@ except Exception as e:
 
 
 testing_video = ""
+video_link = ""
 command_args = [] # arguments to pass to yt-dlp
 
-def call_yt_dlp(*args):
+def call_yt_dlp(video_link, *args):
     """
-    Executes yt-dlp and returns the command's output
+    Executes yt-dlp and returns the command's output.
+    
+    video_link is required and should be the URL string to the video
+    to be downloaded.
+    
+    other arguments should be strings, as they will be appended in order
+    after the URL when invoking yt-dlp.
+    
     """
-    result = subprocess.call(["yt-dlp", testing_video])
+    result = subprocess.call(["yt-dlp", video_link])
     
     return result
+
+def dl_button_press():
+    """
+    This function should not be run directly for the purposes of this script.
     
+    Assign this function as a parameter when initalizing a customtkinter
+    button object.  The function will then run any time the button is pressed.
+    """
+    
+    url = video_url.get("0.0", "end") # gets URL from video_url text box
+    
+    call_yt_dlp(url)
+
 # Set up basic properties for ctk object
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
@@ -45,11 +65,14 @@ video_url = ctk.CTkTextbox(
     activate_scrollbars = False
 )
 video_url.insert("0.0", "Paste URL of video here")
-#video_url_output = video_url.get("0.0", "end") # Use later to get text
 
 
 # Textbox for file path (where to save file..default = downloads?)
 # Button to select this directory
+
+
+# Submit/download button
+download_button = ctk.CTkButton(app, text="Download", command=dl_button_press())
 
 
 # Output window for yt-dlp output
@@ -71,8 +94,7 @@ video_url.grid(padx = 20, pady = 20)
 output_window.grid(padx = 20, pady = 20)
 
 
-# Run yt-dlp to fetch video
-call_yt_dlp()
+
 
 
 

@@ -1,6 +1,21 @@
 # Ruff linter
 .ruff_cache/
 
+# Media files
+*.mp3
+*.wav
+*.webm
+*.mkv
+*.ogv
+*.ogg
+*.avi
+*.mov
+*.mp4
+*.mpeg
+*.mpv
+*.mpg
+*.m4v
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
