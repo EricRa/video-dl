@@ -56,6 +56,7 @@ app = ctk.CTk()
 app.title("video-dl")
 app.geometry("800x500")
 app.resizable(False, False)
+app.grid_columnconfigure(0, weight=1)
 
 # Input box for video URL
 video_url = ctk.CTkTextbox(
@@ -65,6 +66,7 @@ video_url = ctk.CTkTextbox(
     activate_scrollbars = False
 )
 video_url.insert("0.0", "Paste URL of video here")
+video_url.grid(sticky="w", row=0, column=0, padx=20, pady=20)
 
 
 # Textbox for file path (where to save file..default = downloads?)
@@ -73,7 +75,7 @@ video_url.insert("0.0", "Paste URL of video here")
 
 # Submit/download button
 download_button = ctk.CTkButton(app, text="Download", command=dl_button_press())
-
+download_button.grid(sticky="w", column=0, padx=20, pady=20)
 
 # Output window for yt-dlp output
 output_window = ctk.CTkTextbox(
@@ -82,6 +84,7 @@ output_window = ctk.CTkTextbox(
     height = 150,
 )    
 output_window.insert("0.0", "Output will be shown here")
+output_window.grid(sticky="w", column=0, padx=20, pady=20)
 
 
 
