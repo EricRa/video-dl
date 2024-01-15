@@ -3,7 +3,9 @@ A GUI for yt-dlp
 
 ## Status
 
-DON'T USE THIS YET.  NEW PROJECT.  NOT YET FUNCTIONAL.
+Minimal app is now working.  
+
+- The only note is that, for now, "icecream" is an additional dependency that must be installed for the script to run.  I'm using it as a debugging tool and may be included in the code here and there.  I'll remove it eventually.
 
 ## Requirements
 
