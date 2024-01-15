@@ -96,11 +96,4 @@ output_window.insert("0.0", "Output will be shown here")
 output_window.grid(sticky="w", column=0, padx=20, pady=20)
 
 
-# Layout
-# grid method places widgets directly under the previous one by default
-
-video_url.grid(padx=20, pady=20)
-output_window.grid(padx=20, pady=20)
-
-
 app.mainloop()
