@@ -18,7 +18,8 @@ Tentative To-Do List:
 
 - Create "help" button in upper right to open in another window
 
+- Add screenshot to github readme
+
 - Remove calls to icecream.ic
 	- Remove ic from imports
 	- Remove icecream from requirements.txt
-	

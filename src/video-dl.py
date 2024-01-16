@@ -20,7 +20,6 @@ except Exception as e:
 testing_video = ""
 video_link = ""
 console_output = []
-command_args = []  # arguments to pass to yt-dlp
 
 
 def call_yt_dlp(video_link, *args):
@@ -60,6 +59,8 @@ def dl_button_press():
     """
 
     url = video_url.get("0.0", "end")  # gets URL from video_url text box
+    command_args = [] #arguments to pass to yt-dlp
+
 
     ic(sub_checkbox.get())
     ic(thumb_checkbox.get())
@@ -71,7 +72,7 @@ def dl_button_press():
     
     call_yt_dlp(url, *command_args)
     
-    console_output = []
+
     
 def checkbox_event():
     """
