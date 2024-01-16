@@ -61,7 +61,15 @@ def dl_button_press():
     url = video_url.get("0.0", "end")  # gets URL from video_url text box
 
     call_yt_dlp(url)
-
+    
+def checkbox_event():
+    """
+    This function should not be run directly
+    
+    Assign this function as a parameter to a ctk checkbox object
+    """
+    
+    ic(sub_checkbox.get())
 
 # Set up basic properties for ctk object
 ctk.set_appearance_mode("dark")
@@ -74,8 +82,21 @@ app.grid_columnconfigure(0, weight=1)
 
 # Input box for video URL
 video_url = ctk.CTkTextbox(app, width=700, height=30, activate_scrollbars=False)
-video_url.insert("0.0", "Paste URL of video here")
+video_url.insert("0.0", "Paste URL of video or playlist here")
 video_url.grid(sticky="w", row=0, column=0, padx=20, pady=20)
+
+# Subtitle checkbox
+subtitle_check = ctk.StringVar(value="on")
+sub_checkbox = ctk.CTkCheckBox(
+    app,
+    text="Subtitles",
+    command=checkbox_event,
+    variable=subtitle_check,
+    onvalue="on",
+    offvalue="off"
+)
+sub_checkbox.grid(sticky="w", column=0, padx=5)
+
 
 
 # Textbox for file path (where to save file..default = downloads?)
