@@ -2,7 +2,7 @@ import customtkinter as ctk
 import subprocess
 import sys
 
-# ***REMOVE THIS IMPORT LATER, IT IS NOT IN REQUIREMENTS.TXT***
+# ***REMOVE THIS IMPORT LATER***
 from icecream import ic  # For debugging
 
 # Make sure user has yt-dlp working
@@ -71,6 +71,7 @@ def dl_button_press():
         command_args.append("--write-thumbnail")
     
     call_yt_dlp(url, *command_args)
+
     
 
     
@@ -135,6 +136,24 @@ thumb_checkbox.grid(sticky="w",row=100, column=1, padx=5)
 # Submit/download button
 download_button = ctk.CTkButton(app, text="Download", command=dl_button_press)
 download_button.grid(sticky="w", column=0, padx=20, pady=20)
+
+"""
+
+# Progress bar  - Possibly add in later - not yet working as expected
+
+prog_label = ctk.CTkLabel(app, text="Progress:", fg_color="transparent")
+prog_label.grid(sticky="w", padx=20)
+progress_bar = ctk.CTkProgressBar(
+    app, 
+    orientation="horizontal", 
+    height=30,
+    width=300,
+    mode="indeterminate"
+)
+progress_bar.grid(sticky="w", padx=20, pady=20)
+progress_bar.set(0)
+
+"""
 
 # Output window for yt-dlp output
 output_window = ctk.CTkTextbox(
