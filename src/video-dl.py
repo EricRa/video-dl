@@ -38,7 +38,8 @@ def call_yt_dlp(video_link, *args):
     we can print those out.
 
     """
-    result = subprocess.run(["yt-dlp", video_link], capture_output=True, text=True)
+    
+    result = subprocess.run(["yt-dlp", video_link, *args], capture_output=True, text=True)
 
     console_output.append(result.stdout)
     console_output.append(result.stderr)
@@ -60,7 +61,17 @@ def dl_button_press():
 
     url = video_url.get("0.0", "end")  # gets URL from video_url text box
 
-    call_yt_dlp(url)
+    ic(sub_checkbox.get())
+    ic(thumb_checkbox.get())
+    if sub_checkbox.get() == "on":
+        command_args.append("--write-subs")
+        
+    if thumb_checkbox.get() == "on":
+        command_args.append("--write-thumbnail")
+    
+    call_yt_dlp(url, *command_args)
+    
+    console_output = []
     
 def checkbox_event():
     """
@@ -70,6 +81,7 @@ def checkbox_event():
     """
     
     ic(sub_checkbox.get())
+    ic(thumb_checkbox.get())
 
 # Set up basic properties for ctk object
 ctk.set_appearance_mode("dark")
@@ -78,25 +90,41 @@ app = ctk.CTk()
 app.title("video-dl")
 app.geometry("800x500")
 app.resizable(False, False)
-app.grid_columnconfigure(0, weight=1)
+app.grid_columnconfigure((0,1,2,3,4), weight=1)
 
 # Input box for video URL
 video_url = ctk.CTkTextbox(app, width=700, height=30, activate_scrollbars=False)
 video_url.insert("0.0", "Paste URL of video or playlist here")
 video_url.grid(sticky="w", row=0, column=0, padx=20, pady=20)
 
+
+# Frame for checkboxes
+app.checkbox_frame = ctk.CTkFrame(app)
+app.checkbox_frame.grid(row=100, column = 0, padx=10, pady=(10,0), sticky="w")
+
 # Subtitle checkbox
 subtitle_check = ctk.StringVar(value="on")
 sub_checkbox = ctk.CTkCheckBox(
-    app,
+    app.checkbox_frame,
     text="Subtitles",
     command=checkbox_event,
     variable=subtitle_check,
     onvalue="on",
     offvalue="off"
 )
-sub_checkbox.grid(sticky="w", column=0, padx=5)
+sub_checkbox.grid(sticky="w", row=100, column=0, padx=5)
 
+# Thumbnail checkbox
+thumb_check = ctk.StringVar(value="on")
+thumb_checkbox = ctk.CTkCheckBox(
+    app.checkbox_frame,
+    text="Thumbnail",
+    command=checkbox_event,
+    variable=thumb_check,
+    onvalue="on",
+    offvalue="off"
+)
+thumb_checkbox.grid(sticky="w",row=100, column=1, padx=5)
 
 
 # Textbox for file path (where to save file..default = downloads?)

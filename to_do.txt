@@ -1,10 +1,24 @@
+Tentative To-Do List:
+(✔️✔️ means completed)
+
+
+- Make sure playlists work ✔️✔️
+
+- Subtitle checkbox
+
+- Figure out how to properly unpack args to pass an indefinite number of string arguments to the subprocess.run yt-dlp call
+
 - Change default customertkinter images/icons
 
-- Add features:
+- Quality dropdown
 
-	- Checkboxes/radio buttons/dropdowns for most commonly used flags:
-		- Quality
-		- Subtitles
-		- ? (need to review options)
-		
+- Possibly separate main download function into new thread
+
+- Progress bar
+
+- Create "help" button in upper right to open in another window
+
+- Remove calls to icecream.ic
+	- Remove ic from imports
+	- Remove icecream from requirements.txt
 	
