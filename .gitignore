@@ -15,6 +15,10 @@
 *.mpv
 *.mpg
 *.m4v
+*.vtt
+*.srt
+*.webp
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

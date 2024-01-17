@@ -1,6 +1,11 @@
-import customtkinter as ctk
+
 import subprocess
 import sys
+
+from pathlib import Path
+from threading import Thread
+
+import customtkinter as ctk
 
 # ***REMOVE THIS IMPORT LATER***
 from icecream import ic  # For debugging
@@ -61,17 +66,19 @@ def dl_button_press():
     url = video_url.get("0.0", "end")  # gets URL from video_url text box
     command_args = [] #arguments to pass to yt-dlp
 
-
-    ic(sub_checkbox.get())
-    ic(thumb_checkbox.get())
+    ic("Download button pressed")
+    
     if sub_checkbox.get() == "on":
         command_args.append("--write-subs")
         
     if thumb_checkbox.get() == "on":
         command_args.append("--write-thumbnail")
     
-    call_yt_dlp(url, *command_args)
-
+    dl_thread = Thread(target=call_yt_dlp, args=(url, *command_args))
+    dl_thread.start()
+    
+    # call_yt_dlp(url, *command_args)  Commenting out to test threads
+    
     
 
     
@@ -161,7 +168,11 @@ output_window = ctk.CTkTextbox(
     width=700,
     height=150,
 )
-output_window.insert("0.0", "Output will be shown here")
+output_window.insert(
+    "0.0", 
+    "Output will be shown here.  It will only show up after the download "
+    "has finished (or failed to download)."
+)
 output_window.grid(sticky="w", column=0, padx=20, pady=20)
 
 
