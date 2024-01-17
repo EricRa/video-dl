@@ -15,6 +15,10 @@ Tentative To-Do List:
 
 - Progress bar
 
+- Supress console being opened when running script if not already open
+
+- Set up logging?
+
 - Create "help" button in upper right to open in another window
 
 - Add screenshot to github readme

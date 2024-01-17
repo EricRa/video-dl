@@ -27,6 +27,7 @@ video_link = ""
 console_output = []
 
 
+
 def call_yt_dlp(video_link, *args):
     """
     Executes yt-dlp and returns the command's output.
@@ -80,8 +81,6 @@ def dl_button_press():
     # call_yt_dlp(url, *command_args)  Commenting out to test threads
     
     
-
-    
 def checkbox_event():
     """
     This function should not be run directly
@@ -91,6 +90,24 @@ def checkbox_event():
     
     ic(sub_checkbox.get())
     ic(thumb_checkbox.get())
+    
+def get_downloads_folder():
+    """
+    Tries to locate the user's Downloads folder in their home directory.  
+    
+    Only need to run this if user wants files downloaded there instead of
+    the directory where the script was run.
+    """
+    try:
+        dl_folder = Path.home() / "Downloads"
+        if dl_folder.exists():
+            return str(dl_folder)
+            ic(str(dl_folder))
+            ic("Download folder found")
+    except:
+        ic("Download folder not found")
+
+download_folder = get_downloads_folder() # can move this inside function
 
 # Set up basic properties for ctk object
 ctk.set_appearance_mode("dark")
@@ -174,6 +191,7 @@ output_window.insert(
     "has finished (or failed to download)."
 )
 output_window.grid(sticky="w", column=0, padx=20, pady=20)
+
 
 
 app.mainloop()
