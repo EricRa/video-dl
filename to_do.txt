@@ -1,18 +1,17 @@
 Tentative To-Do List:
-(✔️✔️ means completed)
 
 
 - Make sure playlists work ✔️✔️
 
-- Subtitle checkbox
+- Subtitle checkbox ️✔️✔️
 
-- Figure out how to properly unpack args to pass an indefinite number of string arguments to the subprocess.run yt-dlp call
+- Figure out how to properly unpack args to pass an indefinite number of string arguments to the subprocess.run yt-dlp call ✔️✔️
+
+- Possibly separate main download function into new thread ✔️✔️
 
 - Change default customertkinter images/icons
 
 - Quality dropdown
-
-- Possibly separate main download function into new thread
 
 - Progress bar
 
@@ -23,3 +22,5 @@ Tentative To-Do List:
 - Remove calls to icecream.ic
 	- Remove ic from imports
 	- Remove icecream from requirements.txt
+	
+- Package for Pypi
