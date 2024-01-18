@@ -107,6 +107,9 @@ def get_downloads_folder():
     except:
         ic("Download folder not found")
 
+def radiobutton_event():
+    ic("Radio toggled.  Current value: ", radio_var.get())
+
 download_folder = get_downloads_folder() # can move this inside function
 
 # Set up basic properties for ctk object
@@ -151,6 +154,34 @@ thumb_checkbox = ctk.CTkCheckBox(
     offvalue="off"
 )
 thumb_checkbox.grid(sticky="w",row=100, column=1, padx=5)
+
+
+# Radio buttons for download location
+radio_frame = ctk.CTkFrame(master=app, width=400, height=15)
+radio_frame.grid(sticky="w", padx=20, pady=20)
+
+radio_label = ctk.CTkLabel(radio_frame, text="Download location: ")
+radio_label.grid(sticky="w", padx=20, pady=20, row=0)
+
+radio_var = ctk.IntVar(value=1)
+
+radio_current_folder = ctk.CTkRadioButton(
+    radio_frame, 
+    text="Current Folder",
+    command=radiobutton_event,
+    variable=radio_var,
+    value=1
+)
+radio_current_folder.grid(sticky="w", padx=20, pady=20, row=0, column=150)
+
+radio_downloads = ctk.CTkRadioButton(
+    radio_frame, 
+    text="Downloads folder",
+    command=radiobutton_event,
+    variable=radio_var,
+    value=2
+)
+radio_downloads.grid(sticky="w", padx=20, pady=20, row=0, column=300)
 
 
 # Textbox for file path (where to save file..default = downloads?)
