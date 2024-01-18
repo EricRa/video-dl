@@ -26,7 +26,21 @@ testing_video = ""
 video_link = ""
 console_output = []
 
-
+def get_downloads_folder():
+    """
+    Tries to locate the user's Downloads folder in their home directory.  
+    
+    Only need to run this if user wants files downloaded there instead of
+    the directory where the script was run.
+    """
+    try:
+        dl_folder = Path.home() / "Downloads"
+        if dl_folder.exists():
+            return str(dl_folder)
+            ic(str(dl_folder))
+            ic("Download folder found")
+    except:
+        ic("Download folder not found")
 
 def call_yt_dlp(video_link, *args):
     """
@@ -75,6 +89,15 @@ def dl_button_press():
     if thumb_checkbox.get() == "on":
         command_args.append("--write-thumbnail")
     
+    if radio_var.get() == 2:
+        ic(get_downloads_folder())
+        ic(isinstance(get_downloads_folder(), str))
+        if isinstance(get_downloads_folder(), str) == True:
+            folder_arg = "-P " + get_downloads_folder()
+            ic(folder_arg)
+            command_args.append(folder_arg)
+            ic(command_args)
+    
     dl_thread = Thread(target=call_yt_dlp, args=(url, *command_args))
     dl_thread.start()
     
@@ -83,31 +106,23 @@ def dl_button_press():
     
 def checkbox_event():
     """
-    This function should not be run directly
+    This function should not be run directly.
     
-    Assign this function as a parameter to a ctk checkbox object
+    Assign this function as a parameter to a ctk checkbox object.
     """
     
     ic(sub_checkbox.get())
     ic(thumb_checkbox.get())
     
-def get_downloads_folder():
-    """
-    Tries to locate the user's Downloads folder in their home directory.  
-    
-    Only need to run this if user wants files downloaded there instead of
-    the directory where the script was run.
-    """
-    try:
-        dl_folder = Path.home() / "Downloads"
-        if dl_folder.exists():
-            return str(dl_folder)
-            ic(str(dl_folder))
-            ic("Download folder found")
-    except:
-        ic("Download folder not found")
+
 
 def radiobutton_event():
+    """
+    This function should not be run directly.
+    
+    Assign this function as a parameter to a ctk radiobutton object.
+    
+    """
     ic("Radio toggled.  Current value: ", radio_var.get())
 
 download_folder = get_downloads_folder() # can move this inside function

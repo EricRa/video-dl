@@ -9,6 +9,8 @@ Tentative To-Do List:
 
 - Possibly separate main download function into new thread ✔️✔️
 
+- Provide radio buttons to change download location ✔️✔️
+
 - Change default customertkinter images/icons
 
 - Quality dropdown
@@ -16,6 +18,8 @@ Tentative To-Do List:
 - Progress bar
 
 - Supress console being opened when running script if not already open
+	- This should be as easy as changing .py extention of main script
+	to .pyw.  Need to leave as is for now though, for testing purposes.
 
 - Set up logging?
 
