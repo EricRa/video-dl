@@ -42,7 +42,10 @@ This has mostly been tested with python 3.12.0 on Windows 10.  In theory, it is 
 - Install dependencies from requirements.txt in this repo.  Can do this manually in pip or can download the file and (with requirements.txt in the same directory):
 	> pip install -r requirements.txt
 	
-- Now you can just run the script (video-dl.py) to start the GUI.
+- Now you can just run the script (video-dl.pyw) to start the GUI.
+	- Note that the .py and .pyw scripts have identical contents.  You should run the .pyw extension on Windows if you want to prevent a console window from opening.  That's the only difference.
+	
+- By default, videos will download in the same folder as the script, but there is an option in the GUI to change this to the system Downloads folder.
 
 
 ## License
