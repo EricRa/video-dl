@@ -1,24 +1,32 @@
 # video-dl
 A GUI for yt-dlp
 
+
 ## Status
 
-Minimal app is now working.  
+App is now working as of 1-19-24.  All currently displayed features are tested and working on Windows.
 
-- The only note is that, for now, "icecream" is an additional dependency that must be installed for the script to run.  I'm using it as a debugging tool and may be included in the code here and there.  I'll remove it eventually.
+This is still in very early stages, so any feedback or issue submissions are welcome.
 
-## Requirements
+I will continue to add features as I have time.
 
-- This has mostly been tested with python 3.12.0 on Windows 10.  In theory, it is cross-platform and should work with any OS and any somewhat recent version of Python 3.
 
-	- Additionally, there may be some cosmetic issues with the UI if using a python version below 3.10.
+## Requirements/Dependencies
+
+This has mostly been tested with python 3.12.0 on Windows 10.  In theory, it is cross-platform and should work with any OS and any somewhat recent version of Python (>=3.7).
+
+	- There may be some minor cosmetic issues with the UI if using a python version below 3.10.
 	
-- yt-dlp
+###yt-dlp
 
 	- yt-dlp needs to be installed for this to work.  I chose not to bundle it because yt-dlp is updated quite often to ensure compatibility with different video sites.
 	
 	- You should keep yt-dlp up to date to get the best results.  For testing, yt-dlp version 2023.12.30 was used.
 	
+###Additional Requirements
+
+	- customtkinter
+	- icecream  (Currently using this for debugging.  Necessary for now, but will remove later.)
 	
 ## Installation and usage
 
