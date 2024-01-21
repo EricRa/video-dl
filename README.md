@@ -13,7 +13,9 @@ I will continue to add features as I have time.
 
 ## Requirements/Dependencies
 
-This has mostly been tested with python 3.12.0 on Windows 10.  In theory, it is cross-platform and should work with any OS and any somewhat recent version of Python (>=3.7).
+This has mostly been tested with python 3.12.0 on Windows 10.  It has also been verified to work on Ubuntu Linux, but it has not been extensively tested there.
+
+In theory, it is cross-platform and should work with any OS and any somewhat recent version of Python (>=3.7).
 
 There may be some minor cosmetic issues with the UI if using a python version below 3.10.
 	
