@@ -11,21 +11,21 @@ Tentative To-Do List:
 
 - Provide radio buttons to change download location ✔️✔️
 
+- Supress console being opened when running script if not already open
+	- This should be as easy as changing .py extention of main script
+	to .pyw.  Need to leave as is for now though, for testing purposes. ✔️✔️
+
+- Add screenshot to github readme  ✔️✔️
+
 - Change default customertkinter images/icons
 
 - Quality dropdown
 
 - Progress bar
 
-- Supress console being opened when running script if not already open
-	- This should be as easy as changing .py extention of main script
-	to .pyw.  Need to leave as is for now though, for testing purposes.
-
 - Set up logging?
 
 - Create "help" button in upper right to open in another window
-
-- Add screenshot to github readme
 
 - Remove calls to icecream.ic
 	- Remove ic from imports
