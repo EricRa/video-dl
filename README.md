@@ -2,6 +2,8 @@
 A GUI for yt-dlp
 
 
+![Screenshot of video-dl application on Windows 10.](/media/video-dl.png)
+
 ## Status
 
 App is now working as of 1-19-24.  All currently displayed features are tested and working on Windows.
